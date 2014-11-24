@@ -3,13 +3,13 @@
   "version": "0.7.1",
   "homepage": "https://github.com/uxrocket/uxrocket.calendar",
   "authors": [
-    "Bilal Çınarlı <bcinarli@gmail.com>"
+    "Bilal Çınarlı <bcinarli@gmail.com>"
   ],
   "description": "UX Rocket Calendar:  A jQueryUI Calendar plugin wrapper",
   "main": "lib/uxrocket.calendar.js",
   "dependencies": {
     "jquery": ">=1.11.1",
-	"uxrocket.jqueryui-lite": "latest",
+    "uxrocket.jqueryui-lite": "latest"
   },
   "keywords": [
     "jQuery",
