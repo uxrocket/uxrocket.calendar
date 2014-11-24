@@ -9,7 +9,7 @@
   "main": "lib/uxrocket.calendar.js",
   "dependencies": {
     "jquery": ">=1.11.1",
-	"jqueryui": "latest"
+	"uxrocket.jqueryui-lite": "latest",
   },
   "keywords": [
     "jQuery",
