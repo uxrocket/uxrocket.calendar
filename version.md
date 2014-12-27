@@ -1,3 +1,6 @@
+## Versiyon 0.8.0
+- DEĞİŞİKLİK: Input elemanından wrapper üzerine class isimleri aktarılırken, "uxitd-calendar-ready" ve selector classı kaldırılmaya başlandı. 
+
 ## Versiyon 0.7.1
 - FIX: Class kontrolleri yüzünden, eklenecek eleman inputun kendisi mi yoksa değil mi kontrolü eklendi.
 

@@ -1,6 +1,6 @@
 {
   "name": "uxrocket.calendar",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "UX Rocket Calendar:  A jQueryUI Calendar plugin wrapper",
   "repository": {
     "type": "git",
