@@ -1,3 +1,6 @@
+## Versiyon 0.8.0a (non-release)
+- YENİ: Yeni tanımlanmaya başlayan, elemana bağlanmış uxRocket plugin listesi kontrolleri eklendi.
+
 ## Versiyon 0.8.0
 - DEĞİŞİKLİK: Input elemanından wrapper üzerine class isimleri aktarılırken, "uxitd-calendar-ready" ve selector classı kaldırılmaya başlandı. 
 
