@@ -1,5 +1,5 @@
 /* @author Bilal Cinarli */
-$calendar-version: "0.8.0a";
+$calendar-version: "0.8.1";
 
 /** -------------------------------------------
  	Calendar Styles
@@ -24,8 +24,9 @@ $calendar-version: "0.8.0a";
 
 	.ui-datepicker-prev,
 	.ui-datepicker-next {
-		@include dims(1em);
 		top: .5em;
+        width: 1em;
+        height: 1em;
 		color: #222;
 		text-decoration: none !important;
 		cursor: pointer;
@@ -126,10 +127,11 @@ $calendar-version: "0.8.0a";
 	display: inline-block;
 
     .icon-calendar {
-        @include dims(25px, 100%);
         position: absolute;
         top: 0;
         right: 0;
+        width: 25px;
+        height: 100%;
         font-size: 1.2em;
         color: #37ade0;
 
