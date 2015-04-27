@@ -1,3 +1,6 @@
+## Versiyon 0.8.2
+- FIX: Bağlı takvimlerde ikinci takvimde ay/yıl değişikliğindeki aktif olmama problemi giderildi.
+
 ## Versiyon 0.8.0a (non-release)
 - YENİ: Yeni tanımlanmaya başlayan, elemana bağlanmış uxRocket plugin listesi kontrolleri eklendi.
 
