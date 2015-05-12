@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+	<head>
+		<title>UX Rocket Calendar Sample</title>
+		<meta charset="utf-8" />
+		
+		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="../bower_components/uxrocket.jqueryui-lite/lib/uxrocket.jqueryui.js"></script>
+		<script src="../lib/uxrocket.calendar.js"></script>
+		<script>
+			$(function(){
+				$(".calendar").calendar({
+                    onSelect: function (dateText, inst) {
+                        console.log("onSelect");
+
+                        console.log(dateText);
+                    }
+                });
+			});
+		</script>
+
+        <link href="../bower_components/uxrocket.jqueryui-lite/dist/uxrocket-jqueryui.css" rel="stylesheet" />
+        <link href="../dist/uxrocket-calendar.css" rel="stylesheet" />
+				
+		<style>
+			*, *:before, *:after { box-sizing: border-box }
+			body { margin: 0; padding: 0; font: 16px/1.4 "Gill Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+			.content { padding: 5em; }
+
+			.uxitd-plugin-wrap {
+				width: 350px;
+			}
+
+			.hide {
+				display: none;
+			}
+
+            /** Calendar Styles **/
+		</style>
+	</head>
+	
+	<body>
+		<div class="content">
+			<div class="example">
+
+				<p class="wrap">
+					<input type="text" class="calendar" placeholder="Classic view" id="ac" />
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
