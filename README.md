@@ -45,6 +45,7 @@ Callback 			 | &nbsp;
 onReady              | Takvim, form elemanına bağlandığında çalışacak fonksiyonu çağırır.
 onSelect             | Takvimden bir tarih seçildiğinde çalışacak fonksiyonu çağırır.
 onClose              | Takvim kapatıldığında çalışacak fonksiyonu çağırır.
+onRemove             | Eleman üzerinden takvim kaldırıldığında çalışacak fonksiyonu çağırır.
 
 
 ### Public Metodlar
@@ -54,3 +55,4 @@ $(selector).calendar(options) | Bu method plugini manuel olarak bir elemana bağ
 $.uxcalendar                  | Bu method pluginin detayını görmenizi sağlar
 $.uxcalendar.version          | Sayfaya eklenmiş pluginin versiyon numarasını gösterir.
 $.uxcalendar.settings         | Aktif pluginin ayarlarını gösterir.
+$.uxcalendar.remove(el)       | Elemanın üzerinden Takvim özelliğini kaldırır. `el` değeri boş gönderilirse, sayfadaki bütün Takvimleri kaldırır.
