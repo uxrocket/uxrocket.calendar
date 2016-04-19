@@ -1,3 +1,6 @@
+## Versiyon 0.8.3
+- FIX: `readonly` veya `disabled` tanımlanmış olan alanlarda takvimlerin açılması iptal edildi.
+
 ## Versiyon 0.8.2
 - FIX: Bağlı takvimlerde ikinci takvimde ay/yıl değişikliğindeki aktif olmama problemi giderildi.
 
