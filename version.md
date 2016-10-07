@@ -1,3 +1,7 @@
+## Versiyon 0.9.0
+- YENİ: Gulp environment ve task'leri eklendi.
+- YENİ: Component açıldığı anda o anki saatin ve dakikanın ilgili alanlara basılması sağlandı.
+
 ## Versiyon 0.8.3
 - FIX: `readonly` veya `disabled` tanımlanmış olan alanlarda takvimlerin açılması iptal edildi.
 
