@@ -1,0 +1,11 @@
+{
+  "name": "Select",
+  "registry": "uxrocket.calendar",
+  "version": "0.9.0",
+  "paths": {
+    "lib": "lib/",
+    "dist": "dist/",
+    "test": "test/",
+    "examples": "examples/"
+  }
+}
