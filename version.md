@@ -1,3 +1,6 @@
+## Versiyon 0.10.0
+- YENI: data-time-limit property'si eklendi. Bu property timepicker alanında çalışma anından sonraki bir tarihin seçilmesini engellemektedir.
+
 ## Versiyon 0.9.0
 - YENİ: Gulp environment ve task'leri eklendi.
 - YENİ: Component açıldığı anda o anki saatin ve dakikanın ilgili alanlara basılması sağlandı.

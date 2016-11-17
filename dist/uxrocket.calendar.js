@@ -5,7 +5,6 @@
  * @dependency jQueryUI DatePicker
  */
 
-;
 (function($) {
     var ux, // local shorthand
 
@@ -34,6 +33,16 @@
             icon      : 'icon-calendar'
         };
 
+
+    $(function() {
+        $.datepicker._updateDatepicker_original = $.datepicker._updateDatepicker;
+        $.datepicker._updateDatepicker = function(inst) {
+            $.datepicker._updateDatepicker_original(inst);
+            var afterShow = this._get(inst, 'afterShow');
+            if (afterShow)
+                afterShow.apply((inst.input ? inst.input[0] : null));  // trigger custom callback
+        };
+    });
 
     // constructor method
     var Calendar = function(el, options, selector) {
@@ -69,6 +78,14 @@
         $el.after('<i class="' + ns.icon + '"></i>');
     };
 
+    var disableSelectValues = function($valueArray, margin) {
+        $valueArray.each(function() {
+            if(this.value > margin) {
+                this.disabled = true;
+            }
+        });
+    };
+
 
     var bindActions = function($el) {
         var $before,
@@ -76,7 +93,7 @@
             _opts = $el.data(ns.data),
             onClose = _opts.onClose;
 
-        if(_opts.calendarBefore != undefined) {
+        if(_opts.calendarBefore !== undefined) {
             $before = $(_opts.calendarBefore);
 
             _opts.onClose = function(selectedDate) {
@@ -84,7 +101,7 @@
                 if(typeof onClose == 'function') {
                     onClose();
                 }
-            }
+            };
         }
 
 
@@ -92,10 +109,10 @@
             _opts.beforeShowDay = function(date) {
                 var day = date.getDay();
                 return [(day != 1 && day != 3 && day != 5 && day != 6 && day != 7 && day != 0)];
-            }
+            };
         }
 
-        if(_opts.calendarAfter != undefined) {
+        if(_opts.calendarAfter !== undefined) {
             $after = $(_opts.calendarAfter);
 
             _opts.onClose = function(selectedDate) {
@@ -104,14 +121,29 @@
                 if(typeof onClose == 'function') {
                     onClose();
                 }
-            }
+            };
         }
+
+        _opts.afterShow = function() {
+            var _opts = $el.data(ns.data);
+
+            if(_opts && _opts.timeLimit) {
+                var datePicker = $('#ui-datepicker-div'),
+                    date       = new Date();
+
+                disableSelectValues(datePicker.find(".ui_tpicker_hour_slider option"), date.getHours());
+                disableSelectValues(datePicker.find(".ui_tpicker_minute_slider option"), date.getMinutes());
+            }
+        };
 
         _opts.beforeShow = function() {
             if($el.attr('readonly') || $el.attr('disabled')) {
                 return false;
             }
-            $el.datetimepicker('setDate', new Date());
+            var _opts = $el.data(ns.data),
+                date  = new Date();
+
+            $el.datetimepicker('setDate', date);
         };
 
         $el.next('.' + ns.icon).on(events.click, function() {
@@ -207,7 +239,7 @@
     };
 
     // version
-    ux.version = "0.9.0";
+    ux.version = "0.10.0";
 
     // settings
     ux.settings = defaults;
