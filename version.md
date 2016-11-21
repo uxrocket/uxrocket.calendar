@@ -1,5 +1,5 @@
 ## Versiyon 0.10.0
-- YENI: data-time-limit property'si eklendi. Bu property timepicker alanında çalışma anından sonraki bir tarihin seçilmesini engellemektedir.
+- YENI: data-time-limit property'si eklendi. Bu property timepicker alanında, seçilen gün bugün ise daha ileri bir saat ve dakikanın seçilmesini engellemektedir.
 
 ## Versiyon 0.9.0
 - YENİ: Gulp environment ve task'leri eklendi.
