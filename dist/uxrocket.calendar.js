@@ -23,7 +23,8 @@
             afterShow        : false
         },
         events = {
-            click: 'click.uxCalendar'
+            click     : 'click.uxCalendar',
+            afterShow : 'afterShow.uxCalendar'
         },
         ns = {
             rocket    : 'uxRocket',
@@ -135,6 +136,8 @@
                 date        = new Date(),
                 $datePicker = $('#ui-datepicker-div'),
                 selectedDay = $datePicker.find('.ui-datepicker-current-day a');
+
+            $el.trigger(events.afterShow);
 
             if(_opts && _opts.timeLimit && selectedDay && selectedDay.html() == date.getDate()) {
                 disableSelectValues($datePicker.find(".ui_tpicker_hour_slider option"), date.getHours());
