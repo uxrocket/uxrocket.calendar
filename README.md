@@ -27,6 +27,7 @@ changeYear           | true             | Takvim açıldığında, yıl değişt
 dateFormat           | dd/mm/yy         | Seçilen tarihin, metin kutusunda hangi formatta gözükeceğini belirler.
 yearRange            | c-10:c+10        | Takvimdeki yıl seçiminin aralığını belirtir. `c` şimdiki yılı gösterir. Başlangıç ve bitiş değerleri ":" ile ayrılarak yazılmalıdır. İster `c-nn:c+nn` şeklinde şimdiki yıla göre bir aralık belirlenebilir. İstenirse `nnnn:nnnn` şeklinde sabit bir aralık tanımlanabilir.
 timeLimit            | false            | Timepicker componentinde, seçilen gün bugün ise, ileri bir saat ve dakikanın seçilememesini sağlar.
+setDateNow           | false            | Component'te bulunulan zamanın seçili olarak gelmesini sağlar.
 
 
 Data Attribute 			   | &nbsp;
@@ -40,6 +41,7 @@ number-of-months           | Takvim açıldığında kaç ayın gözükeceğini 
 date-format                | Seçilen tarihin, metin kutusunda hangi formatta gözükeceğini belirler.
 year-range                 | Takvimdeki yıl seçiminin aralığını belirtir. `c` şimdiki yılı gösterir. Başlangıç ve bitiş değerleri ":" ile ayrılarak yazılmalıdır. İster `c-nn:c+nn` şeklinde şimdiki yıla göre bir aralık belirlenebilir. İstenirse `nnnn:nnnn` şeklinde sabit bir aralık tanımlanabilir.
 time-limit                 | Timepicker componentinde, seçilen gün bugün ise, ileri bir saat ve dakikanın seçilememesini sağlar.
+set-date-now               | Component'te bulunulan zamanın seçili olarak gelmesini sağlar.
 
 
 Callback 			 | &nbsp;

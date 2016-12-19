@@ -1,3 +1,6 @@
+## Versiyon 0.10.2
+- FIX: Component açıldığında direkt olarak bugünü seçmesi `data-set-date-now` parametresi ile kontrol edildi. 
+
 ## Versiyon 0.10.1
 - FIX: Component her açıldığında bugünü seçmesi ile ilgili bir bug çözüldü.
 
