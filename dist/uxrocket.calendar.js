@@ -14,6 +14,7 @@
             changeMonth      : true,
             changeYear       : true,
             limitedDate      : false,
+            setDateNow       : false,
 
             // callbacks
             onReady          : false,
@@ -154,7 +155,9 @@
                 return false;
             }
 
-            $el.datetimepicker('setDate', new Date());
+            if(_opts.setDateNow && $el.val() === "") {
+                $el.datetimepicker('setDate', new Date());
+            }
         };
 
         $el.next('.' + ns.icon).on(events.click, function() {
@@ -250,7 +253,7 @@
     };
 
     // version
-    ux.version = "0.10.0";
+    ux.version = "0.10.2";
 
     // settings
     ux.settings = defaults;
