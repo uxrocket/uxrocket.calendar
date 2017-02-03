@@ -1,7 +1,7 @@
 {
   "name": "Select",
   "registry": "uxrocket.calendar",
-  "version": "0.10.2",
+  "version": "0.11.0",
   "paths": {
     "lib": "lib/",
     "dist": "dist/",
