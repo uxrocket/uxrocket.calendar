@@ -1,3 +1,6 @@
+## Versiyon 0.11.0
+- YENI: Datepicker'in refresh methodunu çağıran bir method eklendi.
+
 ## Versiyon 0.10.2
 - FIX: Component açıldığında direkt olarak bugünü seçmesi `data-set-date-now` parametresi ile kontrol edildi. 
 
