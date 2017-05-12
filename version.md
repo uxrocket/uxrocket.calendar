@@ -1,3 +1,6 @@
+## Versiyon 0.11.1
+- YENİ: versiyon numaraları güncellendi. 
+
 ## Versiyon 0.11.0
 - YENİ: Tamam butonu click evetinde elemente tanımlanan data-button-action değeri çalıştırıldı.  
 
