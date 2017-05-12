@@ -1,3 +1,6 @@
+## Versiyon 0.11.0
+- YENİ: Tamam butonu click evetinde elemente tanımlanan data-button-action değeri çalıştırıldı.  
+
 ## Versiyon 0.10.2
 - FIX: Component açıldığında direkt olarak bugünü seçmesi `data-set-date-now` parametresi ile kontrol edildi. 
 

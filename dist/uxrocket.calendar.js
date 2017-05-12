@@ -132,6 +132,15 @@
             };
         }
 
+        if(_opts.buttonAction !== undefined){
+            $('body').on('click', '.ui-datepicker-close', function () {
+                var executableButtonAction = eval(_opts.buttonAction);
+                if (typeof executableButtonAction === 'function') {
+                    executableButtonAction();
+                }
+            });
+        }
+
         _opts._afterShow = function() {
             var _opts       = $el.data(ns.data),
                 date        = new Date(),
