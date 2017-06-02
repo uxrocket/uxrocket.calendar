@@ -132,15 +132,6 @@
             };
         }
 
-        if(_opts.buttonAction !== undefined){
-            $('body').on('click', '.ui-datepicker-close', function () {
-                var executableButtonAction = eval(_opts.buttonAction);
-                if (typeof executableButtonAction === 'function') {
-                    executableButtonAction();
-                }
-            });
-        }
-
         _opts._afterShow = function() {
             var _opts       = $el.data(ns.data),
                 date        = new Date(),
@@ -262,7 +253,7 @@
     };
 
     // version
-    ux.version = "0.11.1";
+    ux.version = "0.11.2";
 
     // settings
     ux.settings = defaults;

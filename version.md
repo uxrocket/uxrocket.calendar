@@ -1,3 +1,6 @@
+## Versiyon 0.11.2
+- YENİ: buttonAction özelliği kaldırıldı. 
+
 ## Versiyon 0.11.1
 - YENİ: versiyon numaraları güncellendi. 
 
