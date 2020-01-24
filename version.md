@@ -1,3 +1,6 @@
+## Versiyon 0.12.0
+- YENİ: dokunmatik ekranlar içi tarih seçim kutussu pozisyonu düzeltildi. 
+
 ## Versiyon 0.11.2
 - YENİ: buttonAction özelliği kaldırıldı. 
 

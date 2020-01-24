@@ -1,7 +1,7 @@
 ### Bower
 node_modules
 bower_components
-
+package-lock.json
 ### SublimeText template
 # cache files for sublime text
 *.tmlanguage.cache

@@ -9,31 +9,32 @@
     var ux, // local shorthand
 
         defaults = {
-            showOtherMonths  : true,
+            showOtherMonths: true,
             selectOtherMonths: true,
-            changeMonth      : true,
-            changeYear       : true,
-            limitedDate      : false,
-            setDateNow       : false,
+            changeMonth: true,
+            changeYear: true,
+            limitedDate: false,
+            setDateNow: false,
 
             // callbacks
-            onReady          : false,
-            onSelect         : false,
-            onClose          : false,
-            onRemove         : false,
-            afterShow        : false
+            onReady: false,
+            onSelect: false,
+            onClose: false,
+            onRemove: false,
+            afterShow: false,
+            showOn: 'button'
         },
         events = {
-            click     : 'click.uxCalendar',
-            afterShow : 'afterShow.uxCalendar'
+            click: 'click.uxCalendar',
+            afterShow: 'afterShow.uxCalendar'
         },
         ns = {
-            rocket    : 'uxRocket',
-            data      : 'uxCalendar',
-            ready     : 'uxitd-calendar-ready',
+            rocket: 'uxRocket',
+            data: 'uxCalendar',
+            ready: 'uxitd-calendar-ready',
             rocketWrap: 'uxitd-plugin-wrap',
-            wrap      : 'uxitd-calendar-wrap',
-            icon      : 'icon-calendar'
+            wrap: 'uxitd-calendar-wrap',
+            icon: 'icon-calendar'
         };
 
 
@@ -46,16 +47,32 @@
             var _afterShow = this._get(inst, '_afterShow');
             if (_afterShow) {
                 callbackTimeout = setTimeout(function() {
-                    _afterShow.apply((inst.input ? inst.input[0] : null));  // trigger custom callback
+                    _afterShow.apply((inst.input ? inst.input[0] : null)); // trigger custom callback
                 }, 100);
             }
         };
     });
 
+    var isTouchDevice = function() {
+        var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
+        var mq = function(query) {
+          return window.matchMedia(query).matches;
+        };
+    
+        if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+          return true;
+        }
+    
+        // include the 'heartz' as a way to have a non matching MQ to help terminate the join
+        // https://git.io/vznFH
+        var query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
+        return mq(query);
+    };
+
     // constructor method
     var Calendar = function(el, options, selector) {
         var $el = $(el),
-            opts = $.extend({}, defaults, options, $el.data(), {'selector': selector});
+            opts = $.extend({}, defaults, options, $el.data(), { 'selector': selector });
 
         $el.data(ns.data, opts);
 
@@ -70,16 +87,15 @@
         var columns = '',
             _opts = $el.data(ns.data);
 
-        columns = ' ' + $el.context.className.replace(ns.ready, '');
+        columns = ' ' + $el[0].className.replace(ns.ready, '');
 
-        if(_opts.selector.charAt(0) == '.') {
+        if (_opts.selector.charAt(0) == '.') {
             columns = columns.replace(' ' + _opts.selector.substr(1), '');
         }
 
-        if($el.parent().is('.' + ns.rocketWrap)) {
+        if ($el.parent().is('.' + ns.rocketWrap)) {
             $el.parent().addClass(ns.wrap + columns + ' group');
-        }
-        else {
+        } else {
             $el.wrap('<span class="' + ns.rocketWrap + ' ' + ns.wrap + columns + ' group"></span>');
         }
 
@@ -88,7 +104,7 @@
 
     var disableSelectValues = function($valueArray, margin) {
         $valueArray.each(function() {
-            if(this.value > margin) {
+            if (this.value > margin) {
                 this.disabled = true;
             }
         });
@@ -101,61 +117,61 @@
             _opts = $el.data(ns.data),
             onClose = _opts.onClose;
 
-        if(_opts.calendarBefore !== undefined) {
+        if (_opts.calendarBefore !== undefined) {
             $before = $(_opts.calendarBefore);
 
             _opts.onClose = function(selectedDate) {
                 $before.datepicker("option", "maxDate", selectedDate);
-                if(typeof onClose == 'function') {
+                if (typeof onClose == 'function') {
                     onClose();
                 }
             };
         }
 
 
-        if(_opts.limitedDate) {
+        if (_opts.limitedDate) {
             _opts.beforeShowDay = function(date) {
                 var day = date.getDay();
                 return [(day != 1 && day != 3 && day != 5 && day != 6 && day != 7 && day != 0)];
             };
         }
 
-        if(_opts.calendarAfter !== undefined) {
+        if (_opts.calendarAfter !== undefined) {
             $after = $(_opts.calendarAfter);
 
             _opts.onClose = function(selectedDate) {
                 $after.datepicker("option", "minDate", selectedDate);
                 $after.focus(1);
-                if(typeof onClose == 'function') {
+                if (typeof onClose == 'function') {
                     onClose();
                 }
             };
         }
 
         _opts._afterShow = function() {
-            var _opts       = $el.data(ns.data),
-                date        = new Date(),
+            var _opts = $el.data(ns.data),
+                date = new Date(),
                 $datePicker = $('#ui-datepicker-div'),
                 selectedDay = $datePicker.find('.ui-datepicker-current-day a');
 
             $el.trigger(events.afterShow);
 
-            if(_opts && _opts.timeLimit && selectedDay && selectedDay.html() == date.getDate()) {
+            if (_opts && _opts.timeLimit && selectedDay && selectedDay.html() == date.getDate()) {
                 disableSelectValues($datePicker.find(".ui_tpicker_hour_slider option"), date.getHours());
                 disableSelectValues($datePicker.find(".ui_tpicker_minute_slider option"), date.getMinutes());
             }
 
-            if(typeof _opts.afterShow === 'function') {
+            if (typeof _opts.afterShow === 'function') {
                 _opts.afterShow();
             }
         };
 
         _opts.beforeShow = function() {
-            if($el.attr('readonly') || $el.attr('disabled')) {
+            if ($el.attr('readonly') || $el.attr('disabled')) {
                 return false;
             }
 
-            if(_opts.setDateNow && $el.val() === "") {
+            if (_opts.setDateNow && $el.val() === "") {
                 $el.datetimepicker('setDate', new Date());
             }
         };
@@ -164,25 +180,35 @@
             $el.focus();
         });
 
-        if(_opts.time == true) {
+        if (_opts.time == true) {
             $el.datetimepicker(_opts);
-        } else if(_opts.timeOnly) {
+        } else if (_opts.timeOnly) {
+            delete _opts.dateFormat;
             $el.timepicker(_opts);
         } else {
             $el.datepicker(_opts, $.datepicker.regional['tr']);
         }
+
+        
+
+        if ( isTouchDevice() ) {
+            $datePicker = $('#ui-datepicker-div');
+            $datePicker.addClass('touch-device');
+        }
+
+
     };
 
     // global callback
     var callback = function(fn) {
         // if callback string is function call it directly
-        if(typeof fn === 'function') {
+        if (typeof fn === 'function') {
             fn.apply(this);
         }
 
         // if callback defined via data-attribute, call it via new Function
         else {
-            if(fn !== false) {
+            if (fn !== false) {
                 return new Function('return ' + fn);
             }
         }
@@ -197,13 +223,13 @@
                 uxrocket = $el.data(ns.rocket) || {},
                 calendar;
 
-            if($el.hasClass(ns.ready) || $el.hasClass(ns.rocketWrap)) {
+            if ($el.hasClass(ns.ready) || $el.hasClass(ns.rocketWrap)) {
                 return;
             }
 
             $el.addClass(ns.ready);
 
-            uxrocket[ns.data] = {'hasWrapper': true, 'wrapper': ns.wrap, 'ready': ns.ready, 'selector': selector, 'options': options};
+            uxrocket[ns.data] = { 'hasWrapper': true, 'wrapper': ns.wrap, 'ready': ns.ready, 'selector': selector, 'options': options };
 
             $el.data(ns.rocket, uxrocket);
 
@@ -228,12 +254,10 @@
             // remove icon and wrapper
             _this.next('.' + ns.icon).remove();
 
-            if(_uxrocket[ns.data].hasWrapper) {
-                if(Object.keys && Object.keys(_uxrocket).length == 1) {
+            if (_uxrocket[ns.data].hasWrapper) {
+                if (Object.keys && Object.keys(_uxrocket).length == 1) {
                     _this.unwrap();
-                }
-
-                else {
+                } else {
                     _this.parent().removeClass(ns.wrap);
                 }
             }
@@ -253,7 +277,7 @@
     };
 
     // version
-    ux.version = "0.11.2";
+    ux.version = "0.12.0";
 
     // settings
     ux.settings = defaults;

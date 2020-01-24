@@ -1,5 +1,5 @@
 /* @author Bilal Cinarli */
-$calendar-version: "0.11.2";
+$calendar-version: "0.12.0";
 
 /** -------------------------------------------
  	Calendar Styles
@@ -9,6 +9,10 @@ $calendar-version: "0.11.2";
 	width: 18em;
 	border: 1px solid #37ade0;
 	background: #fff;
+
+	&.touch-device {
+		position: absolute !important;
+	}
 
 	select {
 		&.ui-datepicker-month,
